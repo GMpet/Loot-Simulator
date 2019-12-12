@@ -58,7 +58,7 @@ namespace Loot_Simulator
                             }
                             if (RNG <= 1.0f * tier)
                             {
-                                epicDrops += rand.Next(1, 2);
+                                epicDrops += rand.Next(1, 3);
                             }
                             if (RNG <= 1.0f * (tier / 2.0f))
                             {
