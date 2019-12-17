@@ -42,19 +42,18 @@ namespace Loot_Simulator
                     if (tier > 0)
                     {
                         Random rand = new Random();
-                        float RNG = 0;
                         totalKills += numKills;
                         for (int i = 0; i < numKills; i++)
                         {
-                            RNG = rand.Next(0, 100);
+                            float RNG = rand.Next(0, 100);
                             commonDrops += rand.Next(tier * 10, tier * 25);
                             if (RNG <= 15.0f * tier)
                             {
                                 uncommonDrops += rand.Next(3 * tier, 8 * tier);
                             }
-                            if (RNG <= 7.0f * tier)
+                            if (RNG <= 6.0f * tier)
                             {
-                                rareDrops += rand.Next(2 * tier, 3 * tier);
+                                rareDrops += rand.Next(1 * tier, 3 * tier);
                             }
                             if (RNG <= 1.0f * tier)
                             {
