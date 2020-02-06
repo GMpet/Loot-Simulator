@@ -1,26 +1,37 @@
-﻿<Window x:Class="Loot_Simulator.MainWindow"
+﻿<Window x:Class="LootSimulator.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:Loot_Simulator"
+        xmlns:local="clr-namespace:LootSimulator"
         mc:Ignorable="d"
-        Title="Loot Simulator v0.1" Height="450" Width="800">
+        Title="Loot Simulator v0.1" Height="450" Width="800" ResizeMode="NoResize">
     <Grid>
-        <Button Grid.Row="0" Name="submit" Margin="347,167,0,0"
-        Click="submit_Click" Height="30" VerticalAlignment="Top" HorizontalAlignment="Left" Width="100">Simulate</Button>
-        <Label x:Name="output" Content="" Margin="347,202,226.6,59"/>
-        <ComboBox x:Name="BossType" HorizontalAlignment="Left" Margin="347,117,0,0" VerticalAlignment="Top" Width="100" SelectionChanged="BossType_SelectionChanged">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="169*"/>
+            <RowDefinition Height="251*"/>
+        </Grid.RowDefinitions>
+        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="268" Margin="200,142,0,0" VerticalAlignment="Top" Width="400" CornerRadius="10" Grid.RowSpan="2" Background="{DynamicResource {x:Static SystemColors.WindowFrameBrushKey}}">
+            <Label x:Name="ItemNameLabel" Content="Item Name" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="9.2,9.2,0,0" Width="380" Foreground="White"/>
+        </Border>
+        <Button Grid.Row="0" x:Name="submit" Margin="347,107,0,0" Click="submit_Click" Height="30" VerticalAlignment="Top" HorizontalAlignment="Left" Width="100" Content="Generate"/>
+        <ComboBox x:Name="BossType" HorizontalAlignment="Left" Margin="347,57,0,0" VerticalAlignment="Top" Width="100" SelectionChanged="BossType_SelectionChanged">
             <ComboBoxItem Content="Tier 1" HorizontalAlignment="Left" Width="118.4"/>
             <ComboBoxItem Content="Tier 2" HorizontalAlignment="Left" Width="118.4"/>
             <ComboBoxItem Content="Tier 3" HorizontalAlignment="Left" Width="118.4"/>
             <ComboBoxItem Content="Tier 4" HorizontalAlignment="Left" Width="118.4"/>
             <ComboBoxItem Content="Tier 5" HorizontalAlignment="Left" Width="118.4"/>
         </ComboBox>
-        <TextBox x:Name="NumKills" HorizontalAlignment="Left" Height="22" Margin="347,49,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="100" TextChanged="TextBox_TextChanged"/>
-        <Label HorizontalContentAlignment="Center" Content="Number of Kills per simulation" HorizontalAlignment="Left" Margin="309,10,0,0" VerticalAlignment="Top" Height="26" Width="172"/>
-        <Label HorizontalContentAlignment="Center" Content="Boss Tier" HorizontalAlignment="Left" Margin="347,82,0,0" VerticalAlignment="Top" Height="24" Width="100"/>
-        <Button x:Name="Reset" Content="Reset" HorizontalAlignment="Left" Margin="347,366,0,0" VerticalAlignment="Top" Width="100" Click="Button_Click" Height="37"/>
+        <Label HorizontalContentAlignment="Center" Content="Boss Tier" HorizontalAlignment="Left" Margin="347,22,0,0" VerticalAlignment="Top" Height="24" Width="100"/>
+        <TextBox x:Name="StatOutput" HorizontalAlignment="Left" Height="100" Margin="212,5.6,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="83" BorderBrush="{DynamicResource {x:Static SystemColors.WindowFrameBrushKey}}" AcceptsReturn="True" Grid.Row="1" Background="{DynamicResource {x:Static SystemColors.WindowFrameBrushKey}}" Foreground="White"/>
+        <TextBox x:Name="BonusStatOutput" Foreground="Lime" Height="100" Margin="295,0,415.6,141" TextWrapping="Wrap" Text="" VerticalAlignment="Bottom" BorderBrush="{DynamicResource {x:Static SystemColors.WindowFrameBrushKey}}" AcceptsReturn="True" Grid.Row="1" Background="{DynamicResource {x:Static SystemColors.WindowFrameBrushKey}}"/>
+        <TextBox x:Name="OnEquipText" Foreground="Lime" HorizontalAlignment="Left" Height="40" Margin="212,86.2,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="368" Grid.Row="1" Background="{DynamicResource {x:Static SystemColors.WindowFrameBrushKey}}" BorderBrush="{DynamicResource {x:Static SystemColors.WindowFrameBrushKey}}" TextChanged="OnEquipText_TextChanged"/>
+        <TextBox x:Name="ItemAbility" Foreground="Lime" HorizontalAlignment="Left" Height="40" Margin="212,126.2,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="368" Grid.Row="1" Background="{DynamicResource {x:Static SystemColors.WindowFrameBrushKey}}" BorderBrush="{DynamicResource {x:Static SystemColors.WindowFrameBrushKey}}" TextChanged="OnEquipText_TextChanged"/>
+        <TextBox x:Name="Level" Foreground="White" HorizontalAlignment="Left" Height="21" Margin="530,155,0,0" TextWrapping="Wrap" Text="Level" VerticalAlignment="Top" Width="50" Background="{DynamicResource {x:Static SystemColors.WindowFrameBrushKey}}" BorderBrush="{DynamicResource {x:Static SystemColors.WindowFrameBrushKey}}" TextChanged="OnEquipText_TextChanged" Grid.RowSpan="2"/>
+        <TextBox x:Name="Flavortext" Foreground="#FFE2C92F" HorizontalAlignment="Left" Height="40" Margin="212,166.2,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="368" Background="{DynamicResource {x:Static SystemColors.WindowFrameBrushKey}}" BorderBrush="{DynamicResource {x:Static SystemColors.WindowFrameBrushKey}}" TextChanged="OnEquipText_TextChanged" Grid.Row="1"/>
+        <TextBox x:Name="TierSet" Foreground="#FFC7CE25" HorizontalAlignment="Left" Height="26" Margin="212,206.2,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="235" Background="{DynamicResource {x:Static SystemColors.WindowFrameBrushKey}}" BorderBrush="{DynamicResource {x:Static SystemColors.WindowFrameBrushKey}}" TextChanged="OnEquipText_TextChanged" Grid.Row="1"/>
+        <TextBox x:Name="LootType" Foreground="White" HorizontalAlignment="Left" Height="21" Margin="530,6.2,0,0" TextWrapping="Wrap" Text="Type" VerticalAlignment="Top" Width="50" Background="{DynamicResource {x:Static SystemColors.WindowFrameBrushKey}}" BorderBrush="{DynamicResource {x:Static SystemColors.WindowFrameBrushKey}}" TextChanged="OnEquipText_TextChanged" Grid.Row="1"/>
+        <TextBox x:Name="SellPrice" Foreground="White" HorizontalAlignment="Left" Height="26" Margin="500,206.2,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="100" Background="{DynamicResource {x:Static SystemColors.WindowFrameBrushKey}}" BorderBrush="{DynamicResource {x:Static SystemColors.WindowFrameBrushKey}}" TextChanged="OnEquipText_TextChanged" Grid.Row="1" Text="Sell: "/>
     </Grid>
 
 </Window>

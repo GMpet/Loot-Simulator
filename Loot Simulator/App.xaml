@@ -1,7 +1,7 @@
-﻿<Application x:Class="Loot_Simulator.App"
+﻿<Application x:Class="LootSimulator.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:local="clr-namespace:Loot_Simulator"
+             xmlns:local="clr-namespace:LootSimulator"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
          
